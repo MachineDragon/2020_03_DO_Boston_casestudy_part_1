@@ -5,8 +5,11 @@ pipeline {
         CONTAINER_NAME = "casestudy_part_1"
         STUB_VALUE = "200"
         REGISTRY_CREDENTIAL = "dockerhub"
-    }
+    } 
+    
+
     stages {
+        
         stage('Build') {
             steps {
                     //  Building new image
@@ -16,13 +19,16 @@ pipeline {
                     // create new Docker repo image
                     sh 'docker build -t mikehj24/casestudy_part_1:latest .'
                 }
-                          
+        }
+                
+        stage('Publish'){
+            steps{
                 //  Pushing Image to Repository
-		docker.withRegistry( '', REGISTRY_CREDENTIAL ) {
                 	sh 'docker push mikehj24/casestudy_part_1:latest'                              
-              }
-                echo "Image built and pushed to repository"
+                	echo "Image built and pushed to repository"
             }
+        }
+        
         
         stage('Deployment with Kubernetes') {
             steps {
