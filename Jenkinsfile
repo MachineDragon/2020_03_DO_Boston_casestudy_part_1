@@ -12,20 +12,14 @@ pipeline {
                     //  Building new image
                     sh 'rm -rf 2020_03_DO_Boston_casestudy_part_1'
                     sh 'git clone https://github.com/mikehj122498/2020_03_DO_Boston_casestudy_part_1.git'
-		                sh 'cd 2020_03_DO_Boston_casestudy_part_1'
-                    
+		    sh 'cd 2020_03_DO_Boston_casestudy_part_1'                   
                     // create new Docker repo image
-                    sh 'docker image build -t $DOCKER_HUB_REPO:latest .'
-                    sh 'docker image tag $DOCKER_HUB_REPO:latest $DOCKER_HUB_REPO:$BUILD_NUMBER'
+                    sh 'docker build -t mikehj24/casestudy_part_1:latest .'
                 }
                           
                 //  Pushing Image to Repository
-			          docker.withRegistry( '', REGISTRY_CREDENTIAL ) {
-            
-                sh 'docker push $DOCKER_HUB_REPO:$BUILD_NUMBER'
-                sh 'docker push $DOCKER_HUB_REPO:latest'
-              
-            
+		docker.withRegistry( '', REGISTRY_CREDENTIAL ) {
+                	sh 'docker push mikehj24/casestudy_part_1:latest'                              
               }
                 echo "Image built and pushed to repository"
             }
