@@ -3,6 +3,27 @@ Please follow the live [document](https://docs.google.com/document/d/17OwlITE-yP
 To go about doing this project first we need to create an empty Dockerhub Repository
 
 
+
+Next we need to setup a virtual machine running Ubuntu 20.04
+https://ubuntu.com/download/desktop
+
+As well as virtual box
+https://www.virtualbox.org/wiki/Downloads
+
+On virtualbox select new
+give it a name for type select Linux
+version- Ubuntu 64
+select next, create
+
+Next for loading select the Ubuntu 20.04.iso file
+
+Once ubuntu is loaded up select minimal installation
+
+Open up terminal
+
+
+
+
 Next we need to setup a Jenkins pipeline that can run commands on your local machine
 
 To install Jenkins you need to install pip first by running theese commands
@@ -39,5 +60,9 @@ Now open up your internet browser and go to http://localhost:8080
 
 To get password
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+Setup your jenkins and install recomended plugins
+
+
 
 
