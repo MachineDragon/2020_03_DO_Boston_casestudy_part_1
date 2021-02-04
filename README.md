@@ -35,7 +35,7 @@ sudo ufw allow 8080
 
 sudo ufw status
 
-Now open up your internet browser and go to http://8080
+Now open up your internet browser and go to http://localhost:8080
 
 To get password
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
