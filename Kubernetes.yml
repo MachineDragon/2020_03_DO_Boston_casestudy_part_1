@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sba-flaskappdeploy
+  labels:
+    app: sbaflaskapp
+spec:
+  selector:
+    matchLabels:
+      app: sbaflaskapp
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: sbaflaskapp
+    spec:
+      containers:
+      - name: sba-kubernetes
+        image: mikehj24/sba
+        ports:
+        - containerPort: 8080
